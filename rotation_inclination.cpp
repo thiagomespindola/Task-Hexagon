@@ -11,11 +11,12 @@ using namespace std;
 
 int main(){
 
-	roll_pitch rp, teste;
-	
-	teste.set_position(461,82,887);
-	cout << "phi: " << teste.get_phi() << endl;
-	cout << "theta: " << teste.get_theta() << endl;
+	roll_pitch rp;
+	string line,x,y,theta,phi, phi_c;
+	string *data;	
+	vector <string> lines; 
+	vector <int> coluns;
+	int gi, gx, gy, gz, tm;
 	
 	ifstream myfile;
 	myfile.open("attitude_exam.txt");	
@@ -23,12 +24,6 @@ int main(){
 		cout << "Error open file";
 	}else cout << "Open file success";
 	
-	string line,x,y,theta,phi, phi_c;
-	string *data;	
-	vector <string> lines; 
-	vector <int> coluns;
-	int gi, gx, gy, gz, tm;
-
 	
 	while(!myfile.eof()){
 		
@@ -64,7 +59,7 @@ int main(){
 			theta_aux << rp.get_theta();
 			theta = theta_aux.str(); 
 			
-			line = line + " phi: " + phi + " or: "+ phi_c + " theta: " + theta;
+			line = line + " phi: " + phi + "° "  + " or: "+ phi_c +"° " + " theta: " + theta +"° ";
 			lines.push_back(line);
 		}
 	}

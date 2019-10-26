@@ -39,7 +39,6 @@ double roll_pitch::get_phi(){
 	double phi;
 	double u = 0.1;
 	int signGz;
-	//phi = atan((Gy/Gz))* 180 / PI;
 	if(Gz < 0){
 		signGz = -1;
 	}else signGz = 1;
