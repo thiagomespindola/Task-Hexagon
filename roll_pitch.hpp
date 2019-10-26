@@ -37,6 +37,13 @@ double roll_pitch::get_theta(){
 double roll_pitch::get_phi(){
 	
 	double phi;
-	phi = atan((Gy/Gz))* 180 / PI;
+	double u = 0.1;
+	int signGz;
+	//phi = atan((Gy/Gz))* 180 / PI;
+	if(Gz < 0){
+		signGz = -1;
+	}else signGz = 1;
+	
+	phi = atan((Gy)/(signGz*(sqrt(pow(Gz,2)+(u*pow(Gx,2))))))* 180 /PI;
 	return phi;
 }
